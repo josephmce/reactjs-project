@@ -7,7 +7,7 @@ import Container from './Components/Container'
 import Card from './Components/Card'
 import Toggle from './Components/Toggle'
 import Accordion from './Components/Accordion'
-import QuantitySelector from './Components/QuantitySelector'
+import Product from './Components/product/ProductSection'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -33,11 +33,7 @@ function App() {
 
       </Card>
     </Container>
-    <Container variant="secondary">
-    <Card>
-    <QuantitySelector />
-    </Card>
-    </Container>
+    <Product />
       <div className="flex items-center justify-center gap-6">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
