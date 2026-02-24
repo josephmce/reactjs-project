@@ -4,7 +4,7 @@ variant ="primary",
 size = "sm",
 className ="",
 ...props }){
-    const baseStyles ="px-4 py-2 rounded-xl font-semibold transition";
+    const baseStyles ="px-4 py-2 rounded-xl font-semibold transition hover:cursor-pointer";
 
     const variants = {
     primary: "bg-blue-600 text-white hover:bg-blue-700",

@@ -5,6 +5,9 @@ import './App.css'
 import Button from './Components/Button'
 import Container from './Components/Container'
 import Card from './Components/Card'
+import Toggle from './Components/Toggle'
+import Accordion from './Components/Accordion'
+import QuantitySelector from './Components/QuantitySelector'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -25,7 +28,15 @@ function App() {
       <Button variant="outline" size="lg" className="mt-4 ml-4">
         Outline Button
       </Button>
+      <Toggle />
+      <Accordion />
+
       </Card>
+    </Container>
+    <Container variant="secondary">
+    <Card>
+    <QuantitySelector />
+    </Card>
     </Container>
       <div className="flex items-center justify-center gap-6">
         <a href="https://vite.dev" target="_blank">
