@@ -16,15 +16,18 @@ function App() {
       <h1 className="text-4xl font-bold text-black">
         Tailwind v4 is working 🚀
       </h1>
-      <Button variant="primary" className="mt-4">
+      <Button variant="primary" size="md" className="mt-4">
         Primary Button
       </Button>
-      <Button variant="secondary" className="mt-4 ml-4">
+      <Button variant="secondary" size="sm" className="mt-4 ml-4">
         Secondary Button
+      </Button>
+      <Button variant="outline" size="lg" className="mt-4 ml-4">
+        Outline Button
       </Button>
       </Card>
     </Container>
-      <div>
+      <div className="flex items-center justify-center gap-6">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
