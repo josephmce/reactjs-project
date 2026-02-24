@@ -8,13 +8,13 @@ export default function QuantitySelector() {
 
     // Function to increase quantity by 1
     const increase = () => {
-        setQuantity(quantity + 1);
+        setQuantity(q => q + 1);
     };
 
     // Function to decrease quantity, but only if it's greater than 1
     const decrease = () => {
         if(quantity > 1) {
-            setQuantity(quantity - 1);
+            setQuantity(q => q - 1);
         }
     };
 
