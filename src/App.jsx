@@ -10,6 +10,7 @@ import Accordion from './Components/Accordion'
 import Product from './Components/product/ProductSection'
 import ProductGrid from './Components/ProductGrid'
 import Header from './Components/Header'
+import Checkout from './Components/Checkout'
 
 
 function App() {
@@ -20,11 +21,16 @@ function App() {
     <>
     <Header cartItems={cartItems} /> {/* Pass cart items to Header */}
     <ProductGrid cartItems={cartItems} setCartItems={setCartItems} /> {/* ProductGrid will manage cart state and pass it down to ProductCard */}
+    <h1 className="text-4xl font-bold text-white">
+        Form
+      </h1>
+    <Checkout />
     <Container>
       <Card>
       <h1 className="text-4xl font-bold text-black">
-        Tailwind v4 is working 🚀
+        React & Tailwind
       </h1>
+      <Checkout />
       <Button variant="primary" size="md" className="mt-4">
         Primary Button
       </Button>

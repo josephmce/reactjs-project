@@ -10,6 +10,7 @@ className ="",
     primary: "bg-blue-600 text-white hover:bg-blue-700",
     secondary: "bg-gray-600 text-white hover:bg-gray-700",
     outline: "border border-gray-600 text-gray-600 hover:bg-gray-100",
+    disabled: "bg-gray-300 text-gray-500 cursor-not-allowed"
   };
     const sizes = {
         sm: "px-3 py-1 text-sm",
