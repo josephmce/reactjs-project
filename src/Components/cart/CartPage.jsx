@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux"; // Import useSelector hook to access Redux store state
 import { Link } from "react-router-dom"; // Import Link component for navigation between routes, this allows us to create links that navigate to different pages without reloading the entire app. The reason we need it in this page is because we have a "Proceed to Checkout" button that should take the user to the checkout page when clicked. By using Link, we can navigate to the checkout page without causing a full page reload, which provides a smoother user experience.
+import Button from "../ui/Button";
 
 export default function CartPage() {
   const cartItems = useSelector(state => state.cart.items);
@@ -28,9 +29,14 @@ export default function CartPage() {
       ))}
       <div className="text-right font-bold">Total: £{total.toFixed(2)}</div>
       <Link to="/checkout">
-        <button className="bg-blue-600 text-white px-4 py-2 rounded">
+        <Button>
           Proceed to Checkout
-        </button>
+        </Button>
+      </Link>
+        <Link to="/">
+        <Button className="ml-2" variant="secondary">
+          Back to Products
+        </Button>
       </Link>
     </div>
   );

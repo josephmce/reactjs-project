@@ -11,9 +11,9 @@ export default function Header() {
     <h1 className="text-xl font-bold cursor-pointer text-white no-underline">ReactCore Shop</h1>
     </Link>
       <Link to="/cart" className="relative">
-        <span>🛒</span>
+        <span className="text-[40px]">🛒</span>
         {totalItems > 0 && (
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 text-xs">
+          <span className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full px-2 text-s">
             {totalItems}
           </span>
         )}
