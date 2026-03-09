@@ -35,7 +35,10 @@ export default function ProductGrid() {
   const visibleProducts = [...products]
     // Filter products by selected category
     .filter(product => {
-      if (categoryFilter === "all") return true;
+      if (categoryFilter === "all") 
+      return true;
+    //this is like an else statement. If the categoryFilter is set to "all", it returns true for all products, meaning no filtering is applied. If categoryFilter is set to a specific category (e.g., "electronics"), it compares the product's category with the selected category and only returns true for products that match, effectively filtering the product list to show only items from the selected category.
+      // Only include products that match the selected category. The filter function checks if the categoryFilter state is set to "all". If it is, it returns true for all products, meaning no filtering is applied. If categoryFilter is set to a specific category (e.g., "electronics"), it compares the product's category with the selected category and only returns true for products that match, effectively filtering the product list to show only items from the selected category.
       return product.category === categoryFilter;
     })
     // Sort products by price if a sort option is selected
