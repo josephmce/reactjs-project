@@ -33,7 +33,7 @@ export default function ProductGrid() {
 
   // Create a filtered and sorted copy of products based on current UI state
   const visibleProducts = [...products]
-    // Filter products by selected category
+    // Filter products by selected category. .filter is a JavaScript array method that creates a new array with all elements that pass the test implemented by the provided function. In this case, it is used to filter the products based on the selected category. The filter function checks if the categoryFilter state is set to "all". If it is, it returns true for all products, meaning no filtering is applied. If categoryFilter is set to a specific category (e.g., "electronics"), it compares the product's category with the selected category and only returns true for products that match, effectively filtering the product list to show only items from the selected category.
     .filter(product => {
       if (categoryFilter === "all") 
       return true;
