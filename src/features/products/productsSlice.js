@@ -1,5 +1,6 @@
 // features/products/productsSlice.js
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import placeholder from "../../assets/placeholder.png";
 
 // Async thunk to fetch products from API
 export const fetchProducts = createAsyncThunk(
@@ -18,7 +19,7 @@ export const fetchProducts = createAsyncThunk(
       id: item.id ?? Math.random(),               // fallback id
       title: item.title?.trim() || "Untitled",   // fallback title
       price: Number(item.price) || 0,            // fallback price
-      image: item.image || "/placeholder.png",   // fallback image
+      image: item.image || placeholder,   // fallback image
       description: item.description?.trim() || "", // optional
       category: item.category?.trim() || "misc",  // optional
     }));
