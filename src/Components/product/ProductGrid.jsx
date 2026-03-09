@@ -1,25 +1,48 @@
-import ProductCard from "./ProductCard";
 import { useSelector, useDispatch } from "react-redux";
-import { cartActions } from "../../features/cart/cartSlice";
-
+import { useEffect, useState } from "react";
+import { fetchProducts } from "../../features/products/productsSlice";
+import ProductCard from "./ProductCard";
+import ProductCardSkeleton from "./ProductCardSkeleton";
 
 export default function ProductGrid() {
-  const products = useSelector(state => state.products.items); // Get products from Redux store
-  const dispatch = useDispatch(); // Get dispatch function from Redux store
-  const cartItems = useSelector(state => state.cart.items); // Get cart items from Redux store
+  const dispatch = useDispatch();
 
-  const addToCart = (product, quantity) => {
-      dispatch(cartActions.addToCart({ product, quantity }));
-    };
+  const { items: products, loading: loadingFromStore, error } = useSelector(
+    state => state.products
+  );
+
+  // Local loading state for debugging/throttling
+  const [loading, setLoading] = useState(true);
+
+  // 1️⃣ Original fetch products effect
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
+  // 2️⃣ Debug effect to simulate slow loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false); // stop fake loading after 5s
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Decide what to show based on loading / error / data
+  if (loading || loadingFromStore) return <div className="grid grid-cols-3 gap-6">
+    <ProductCardSkeleton />
+    <ProductCardSkeleton />
+    <ProductCardSkeleton />
+    <ProductCardSkeleton />
+    <ProductCardSkeleton />
+    <ProductCardSkeleton />
+  </div>;
+  if (error) return <p className="text-red-500">{error}</p>;
+
   return (
     <div className="grid grid-cols-3 gap-6">
       {products.map(product => (
-        <ProductCard
-          key={product.id}
-          product={product}
-          cartItems={cartItems}
-          setCartItems={addToCart}
-        />
+        <ProductCard key={product.id} product={product} />
       ))}
     </div>
   );
