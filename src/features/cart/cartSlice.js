@@ -15,6 +15,7 @@ const cartSlice = createSlice({
         state.items.push({ productId, quantity });
       }
     },
+    //clearCart reducer simply resets the cart's items array to an empty array, effectively removing all items from the cart after a successful checkout.
     clearCart: (state) => {
       state.items = [];
     },
