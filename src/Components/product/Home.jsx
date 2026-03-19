@@ -32,7 +32,6 @@ export default function Product() {
                     <Link to="/products?category=women%27s+clothing&sort=none"><Button variant="nav_secondary">Womens</Button></Link>
                     <Link to="/products?category=jewelery&sort=none"><Button variant="nav_secondary">Accessories</Button></Link>
                 </Navigation>
-           <ProductGrid />
             {/* Accordion component to display delivery information */}
             <Accordion title="Delivery Information">
                 <p>We offer free delivery on all orders over £50. Orders under £50 will incur a £5 delivery fee. Delivery times are typically 3-5 business days.</p>

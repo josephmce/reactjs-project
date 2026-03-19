@@ -9,6 +9,7 @@ import { fetchProducts } from "../../features/products/productsSlice";
 import ProductCard from "./ProductCard";
 // Import the skeleton loader component
 import ProductCardSkeleton from "./ProductCardSkeleton";
+import { useSearchParams } from "react-router-dom";
 
 // Main component to display a grid of products with filtering and sorting
 export default function ProductGrid() {
@@ -22,9 +23,18 @@ export default function ProductGrid() {
   );
 
   // State for the selected category filter. categoryFilter and setCategoryFilter are used to manage the current category filter applied to the product list. The categoryFilter state holds the currently selected category (e.g., "all", "electronics", "jewelery", etc.), while the setCategoryFilter function is used to update this state when the user selects a different category from the dropdown. This allows the component to dynamically filter the displayed products based on the user's selection.
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  //const [categoryFilter, setCategoryFilter] = useState("all"); removeing this as i dont need it to be state as i will be using search params instead
+  const [searchParams] = useSearchParams();
+  const [categoryFilter, setCategoryFilter] = useState(searchParams.get("category") || "all");
+    //const [priceSort, setPriceSort] = useState("none"); removing this as i dont need it to be state as i will be using search params instead
+  const [priceSort, setPriceSort] = useState(searchParams.get("sort") || "none");
   // State for the selected price sort order
-  const [priceSort, setPriceSort] = useState("none");
+  // Update local state whenever the URL changes
+  useEffect(() => {
+    setCategoryFilter(searchParams.get("category") || "all");
+    setPriceSort(searchParams.get("sort") || "none");
+  }, [searchParams]);
+
 
   // Fetch products from API when component first mounts
   useEffect(() => {
@@ -82,7 +92,14 @@ export default function ProductGrid() {
         {/* Category filter dropdown */}
         <select
           value={categoryFilter}
-          onChange={(e) => setCategoryFilter(e.target.value)}
+          //onChange={(e) => setCategoryFilter(e.target.value)} -  removing this as i will be using search params instead
+          //This will update the URL search parameters to reflect the selected category filter. When the user selects a different category from the dropdown, the onChange event handler is triggered, which calls setSearchParams to update the URL with the new category value. This allows for better user experience as the selected filter is reflected in the URL, making it shareable and bookmarkable.
+          onChange={(e) =>
+            setSearchParams({
+              category: e.target.value,
+              sort: priceSort
+            })
+          }
           className="border p-2 rounded bg-[#242424] text-white"
         >
           <option value="all">All Categories</option>
@@ -95,7 +112,14 @@ export default function ProductGrid() {
         {/* Price sort dropdown */}
         <select
           value={priceSort}
-          onChange={(e) => setPriceSort(e.target.value)}
+          //onChange={(e) => setPriceSort(e.target.value)} -  removing this as i will be using search params instead
+          //This will update the URL search parameters to reflect the selected price sort order. When the user selects a different sort option from the dropdown, the onChange event handler is triggered, which calls setSearchParams to update the URL with the new sort value. This allows for better user experience as the selected sort order is reflected in the URL, making it shareable and bookmarkable.
+          onChange={(e) =>
+            setSearchParams({
+              category: categoryFilter,
+              sort: e.target.value
+            })
+          }
           className="border p-2 rounded bg-[#242424] text-white"
         >
           <option value="none">

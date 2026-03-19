@@ -10,7 +10,10 @@ className ="",
     primary: "bg-blue-600 text-white hover:bg-blue-700 hover:cursor-pointer",
     secondary: "bg-gray-600 text-white hover:bg-gray-700 hover:cursor-pointer",
     outline: "border border-gray-600 text-gray-600 hover:bg-gray-100 hover:cursor-pointer",
-    disabled: "bg-gray-300 text-gray-500 cursor-not-allowed"
+    disabled: "bg-gray-300 text-gray-500 cursor-not-allowed",
+    nav_primary: "bg-transparent text-gray-600 hover:bg-gray-100 hover:cursor-pointer",
+    nav_secondary: "bg-transparent text-gray-600 hover:bg-gray-100 hover:cursor-pointer",
+    nav_unselected: "bg-transparent text-gray-400 cursor-not-allowed"
   };
     const sizes = {
         sm: "px-3 py-1 text-sm",
