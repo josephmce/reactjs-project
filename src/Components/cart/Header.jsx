@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className="flex justify-between p-4">
     <Link to="/">
-    <h1 className="text-xl font-bold cursor-pointer text-white no-underline">ReactCore Shop</h1>
+    <h1 className="text-xl font-bold cursor-pointer text-white no-underline">ReactCore</h1>
     </Link>
       <Link to="/cart" className="relative">
         <span className="text-[40px]">🛒</span>
